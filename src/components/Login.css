@@ -1,0 +1,9 @@
+.card{
+    background-color: aqua;
+}
+
+.mylogin{
+    background-color: skyblue;
+    height: 100vh;
+    display: flex;
+}
