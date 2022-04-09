@@ -1,3 +1,4 @@
+import { Button, TextField } from "@mui/material";
 import React from "react";
 import "./Login.css";
 
@@ -13,12 +14,24 @@ const Login = () => {
               <input className="form-control" placeholder="Email" />
               <label>Email</label>
             </div>
+
             <div className="form-floating mt-3">
               <input className="form-control" placeholder="Password" />
               <label>Password</label>
             </div>
 
+            <TextField
+              variant="outlined"
+              className="w-100 mt-3"
+              label="Password"
+              type="password"
+              helperText="enter a strong password"
+            />
+
             <button className="btn btn-danger w-100 mt-5">Submit</button>
+            <Button className="w-100 mt-3" variant="contained" color="error">
+              Material Button
+            </Button>
           </div>
         </div>
       </div>
