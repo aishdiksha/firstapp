@@ -20,16 +20,16 @@ const Login = () => {
               <label>Password</label>
             </div>
 
-            <TextField
+            {/* <TextField
               variant="outlined"
               className="w-100 mt-3"
               label="Password"
               type="password"
               helperText="enter a strong password"
-            />
+            /> */}
 
             <button className="btn btn-danger w-100 mt-5">Submit</button>
-            <Button className="w-100 mt-3" variant="contained" color="error">
+            <Button className="w-100 mt-3" variant="contained" color="warning">
               Material Button
             </Button>
           </div>
