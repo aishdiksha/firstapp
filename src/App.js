@@ -14,6 +14,7 @@ import Header from "./components/Header";
 import EventHandling from "./components/EventHandling";
 import Gallery from "./components/Gallery";
 import ProductList from "./components/ProductList";
+import Signup from "./components/Signup";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { useState } from "react";
@@ -55,6 +56,10 @@ function App() {
 
           <Route element={<ProductList />} path="productlist" />
           <Route element={<Navigate to="/productlist" />} path="aa" />
+
+          <Route element={<Signup />} path="signup" />
+          <Route element={<Navigate to="/signup" />} path="ai" />
+
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

@@ -4,12 +4,12 @@ import { NavLink } from "react-router-dom";
 
 const Header = ({ darkTheme, setDarkTheme }) => {
   const MySwitch = styled(Switch)(({ theme }) => ({
-    width: 62,
+    width: 70,
     height: 34,
-    padding: 7,
+    padding: 10,
     '& .MuiSwitch-switchBase': {
-      margin: 1,
-      padding: 0,
+      margin: 2,
+      padding: 1,
       transform: 'translateX(6px)',
       '&.Mui-checked': {
         color: '#fff',
@@ -69,11 +69,13 @@ const Header = ({ darkTheme, setDarkTheme }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
             <li className="nav-item">
               <NavLink className="nav-link " aria-current="page" to="/home">
                 Home
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink className="nav-link" to="/login">
                 Link
@@ -95,6 +97,12 @@ const Header = ({ darkTheme, setDarkTheme }) => {
             <li className="nav-item">
               <NavLink className="nav-link" to="/productlist">
                 ProductList
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/signup">
+                Signup
               </NavLink>
             </li>
 

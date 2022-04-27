@@ -33,7 +33,7 @@ const Home = () => {
         {btn1}
         <h1 className='mytext'>Home component</h1>
         <p className='mypro'>Home other text</p>
-       <h2>{myhobbies}</h2>
+        <h2>{myhobbies}</h2>
         {btn2}
                
     </div> 
