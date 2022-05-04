@@ -18,6 +18,8 @@ import Signup from "./components/Signup";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { useState } from "react";
+import Chat from "./components/Chat";
+import Flexbox from "./components/Flexbox";
 
 function App() {
   const [darkTheme, setDarkTheme] = useState(false);
@@ -59,6 +61,12 @@ function App() {
 
           <Route element={<Signup />} path="signup" />
           <Route element={<Navigate to="/signup" />} path="ai" />
+
+          <Route element={<Chat />} path="chat" />
+          <Route element={<Navigate to="/chat" />} path="av" />
+
+          <Route element={<Flexbox />} path="flex" />
+          <Route element={<Navigate to="/flex" />} path="av" />
 
         </Routes>
       </BrowserRouter>

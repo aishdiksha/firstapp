@@ -78,7 +78,7 @@ const Header = ({ darkTheme, setDarkTheme }) => {
 
             <li className="nav-item">
               <NavLink className="nav-link" to="/login">
-                Link
+                Login
               </NavLink>
             </li>
 
@@ -103,6 +103,18 @@ const Header = ({ darkTheme, setDarkTheme }) => {
             <li className="nav-item">
               <NavLink className="nav-link" to="/signup">
                 Signup
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/chat">
+                Chat
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/flex">
+                Flexbox
               </NavLink>
             </li>
 
