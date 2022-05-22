@@ -1,56 +1,99 @@
 import { Button, TextField } from "@mui/material";
-import React from "react";
-import "./Login.css";
 import { Formik } from "formik";
+import React from "react";
+import Swal from "sweetalert2";
+import "./Login.css";
 
 const Login = () => {
-  const userForm = {
+  const loginform = {
     email: "",
     password: "",
   };
 
-  // 2. Create a function for form submission
-  const userSubmit = (formdata) => {
-    console.log(formdata);
-    alert(formdata);
+  const loginSubmit = (formdata) => {
+    fetch("http://localhost:5000/user/authenticate", {
+      method: "POST",
+      body: JSON.stringify(formdata), //convert javascript to json
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("data saved");
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Login Success!!👍",
+        });
+
+        res.json().then((data) => {
+          console.log(data);
+
+          sessionStorage.setItem("user", JSON.stringify(data));
+        });
+      } else if (res.status === 400) {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Login Failed!!👍",
+        });
+      }
+    });
   };
 
   return (
-    <div className="mylogin">
+    <div className="login-bg">
       <div className="col-md-4 col-sm-6 mx-auto my-auto">
         <div className="card">
           <div className="card-body">
+            {/* <img
+              style={{  }}
+              src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            /> */}
+
+            {/* <div
+              style={{
+                background:
+                  "url(https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)",
+                height: "27rem",
+                width: "27rem",
+                backgroundPosition: "center",
+              }}
+            ></div> */}
             <h3 className="mt-5 mb-5">Login Here</h3>
 
-            <Formik initialValues={userForm} onSubmit={userSubmit}>
+            <Formik initialValues={loginform} onSubmit={loginSubmit}>
               {({ values, handleChange, handleSubmit }) => (
                 <form onSubmit={handleSubmit}>
-                  <TextField
-                    label="Email"
-                    variant="outlined"
-                    className="w-100 mb-4"
-                    id="email"
-                    onChange={handleChange}
-                    value={values.email}
-                  />
+                  <div className="form-floating mt-3">
+                    <input
+                      className="form-control"
+                      placeholder="Email"
+                      id="email"
+                      value={values.email}
+                      onChange={handleChange}
+                    />
+                    <label>Email</label>
+                  </div>
 
                   <TextField
+                    variant="outlined"
+                    className="w-100 mt-3"
                     label="Password"
-                    variant="outlined"
-                    className="w-100 mb-4"
+                    type="password"
                     id="password"
-                    onChange={handleChange}
                     value={values.password}
+                    onChange={handleChange}
                   />
 
-                  <button className="btn btn-danger w-100 mt-5">Submit</button>
                   <Button
                     type="submit"
                     className="w-100 mt-3"
                     variant="contained"
-                    color="warning"
+                    color="primary"
+                    // sx={{ color: "red", background: "white" }}
                   >
-                    Submit
+                    Login Now
                   </Button>
                 </form>
               )}

@@ -1,6 +1,7 @@
 import { Button, TextField } from "@mui/material";
 import React from "react";
 import { Formik } from "formik";
+import Swal from "sweetalert2";
 
 const Signup = () => {
   // 1. Create a form object which should match with model fields
@@ -15,7 +16,29 @@ const Signup = () => {
   // 2. Create a function for form submission
   const userSubmit = (formdata) => {
     console.log(formdata);
-    alert(formdata);
+
+    // to send request on backend
+    // 1. url
+    // 2. request method
+    // 3. data
+    // 4. data format
+
+    fetch("http://localhost:5000/user/add", {
+      method: "POST",
+      body: JSON.stringify(formdata), //convert javascript to json
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("data saved");
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Registered Successfully!!👍",
+        });
+      }
+    });
   };
 
   //   3. use Formik component
@@ -26,7 +49,7 @@ const Signup = () => {
       <hr className="mb-5" />
 
       <Formik initialValues={userForm} onSubmit={userSubmit}>
-        {({ values, handleChange, handleSubmit }) => (
+        {({ handleSubmit, handleChange, values }) => (
           <form onSubmit={handleSubmit}>
             <TextField
               label="Username"

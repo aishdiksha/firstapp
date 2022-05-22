@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -20,6 +20,10 @@ import { ThemeProvider } from "@emotion/react";
 import { useState } from "react";
 import Chat from "./components/Chat";
 import Flexbox from "./components/Flexbox";
+import UsingMaterial from "./components/UsingMaterial";
+import MemeCreator from "./components/MemeCreator";
+import ProductDetail from "./components/ProductDetail";
+import ManageUsers from "./components/ManageUsers";
 
 function App() {
   const [darkTheme, setDarkTheme] = useState(false);
@@ -51,22 +55,34 @@ function App() {
           <Route element={<Navigate to="/notfound" />} path="*" />
 
           <Route element={<EventHandling>Event</EventHandling>} path="event" />
-          <Route element={<Navigate to="/event" />} path="ash" />
+          <Route element={<Navigate to="/event" />} path="a" />
 
           <Route element={<Gallery />} path="gallery" />
           <Route element={<Navigate to="/gallery" />} path="a" />
 
           <Route element={<ProductList />} path="productlist" />
-          <Route element={<Navigate to="/productlist" />} path="aa" />
+          <Route element={<Navigate to="/productlist" />} path="a" />
 
           <Route element={<Signup />} path="signup" />
-          <Route element={<Navigate to="/signup" />} path="ai" />
+          <Route element={<Navigate to="/signup" />} path="a" />
 
           <Route element={<Chat />} path="chat" />
-          <Route element={<Navigate to="/chat" />} path="av" />
+          <Route element={<Navigate to="/chat" />} path="a" />
 
           <Route element={<Flexbox />} path="flex" />
-          <Route element={<Navigate to="/flex" />} path="av" />
+          <Route element={<Navigate to="/flex" />} path="a" />
+
+          <Route element={<UsingMaterial />} path="usingmaterial" />
+          <Route element={<Navigate to="/usingmaterial" />} path="a" />
+
+          <Route element={<MemeCreator />} path="meme" />
+          <Route element={<Navigate to="/meme" />} path="a" />
+
+          <Route element={<ProductDetail />} path="product" />
+          <Route element={<Navigate to="/product" />} path="a" />
+
+          <Route element={<ManageUsers />} path="manage" />
+          <Route element={<Navigate to="/manage" />} path="a" />
 
         </Routes>
       </BrowserRouter>
